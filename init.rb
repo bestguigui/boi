@@ -6,8 +6,8 @@ class Character
   end
 
   def update
-  	velocity = 2
-  	# horizontal movement
+    velocity = 2
+    # horizontal movement
     if Gosu::button_down?(Gosu::KB_RIGHT)
       @x += velocity
     elsif Gosu::button_down?(Gosu::KB_LEFT)
