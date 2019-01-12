@@ -1,25 +1,25 @@
 require 'gosu'
 
 class Window < Gosu::Window
-	def initialize
-		super(640, 480, false)
-		self.caption = 'BoI clone'
-	end
+  def initialize
+    super(640, 480, false)
+    self.caption = 'BoI clone'
+  end
 
-	def needs_cursor?; true; end
+  def needs_cursor?; true; end
 
-	def button_down(id)
-		super
-		close! if id == Gosu::KB_ESCAPE
-	end
+  def button_down(id)
+    super
+      close! if id == Gosu::KB_ESCAPE
+  end
 
-	def update
+  def update
 
-	end
+  end
 
-	def draw
+  def draw
 
-	end
+  end
 end
 
 Window.new.show
