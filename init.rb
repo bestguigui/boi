@@ -9,15 +9,15 @@ class Character
   	velocity = 2
   	# horizontal movement
     if Gosu::button_down?(Gosu::KB_RIGHT)
-    	@x += velocity
+      @x += velocity
     elsif Gosu::button_down?(Gosu::KB_LEFT)
-    	@x -= velocity
+      @x -= velocity
     end
     # vertical movement
     if Gosu::button_down?(Gosu::KB_DOWN)
-    	@y += velocity
+      @y += velocity
     elsif Gosu::button_down?(Gosu::KB_UP)
-    	@y -= velocity
+      @y -= velocity
     end
   end
 
