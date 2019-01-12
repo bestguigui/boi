@@ -1,5 +1,6 @@
 require 'gosu'
 require_relative 'character.rb'
+require_relative 'projectile.rb'
 
 class Window < Gosu::Window
   def initialize
