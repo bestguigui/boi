@@ -6,7 +6,19 @@ class Character
   end
 
   def update
-
+  	velocity = 2
+  	# horizontal movement
+    if Gosu::button_down?(Gosu::KB_RIGHT)
+    	@x += velocity
+    elsif Gosu::button_down?(Gosu::KB_LEFT)
+    	@x -= velocity
+    end
+    # vertical movement
+    if Gosu::button_down?(Gosu::KB_DOWN)
+    	@y += velocity
+    elsif Gosu::button_down?(Gosu::KB_UP)
+    	@y -= velocity
+    end
   end
 
   def draw
@@ -28,11 +40,11 @@ class Window < Gosu::Window
 
   def button_down(id)
     super
-      close! if id == Gosu::KB_ESCAPE
+    close! if id == Gosu::KB_ESCAPE
   end
 
   def update
-  	@character.update
+    @character.update
   end
 
   def draw
