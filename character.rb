@@ -1,7 +1,7 @@
 class Character
   def initialize(x = 0, y = 0)
     @x, @y = x, y
-
+    @size = 32
     @projectiles = Array.new
     @max_cooldown = 20
     @cooldown = @max_cooldown
@@ -36,10 +36,19 @@ class Character
         x, y = @x, @y
         vx, vy = 0, 0
         projectile_vel = 5
-        vx = projectile_vel  if Gosu::button_down?(Gosu::KB_RIGHT)        
-        vx = -projectile_vel if Gosu::button_down?(Gosu::KB_LEFT)        
-        vy = -projectile_vel if Gosu::button_down?(Gosu::KB_UP)        
-        vy = projectile_vel  if Gosu::button_down?(Gosu::KB_DOWN)        
+        if Gosu::button_down?(Gosu::KB_RIGHT)
+          vx = projectile_vel
+          x += @size / 2          
+        elsif Gosu::button_down?(Gosu::KB_LEFT)
+          vx = -projectile_vel
+          x -= @size / 2         
+        elsif Gosu::button_down?(Gosu::KB_UP)     
+          vy = -projectile_vel
+          y -= @size / 2    
+        elsif Gosu::button_down?(Gosu::KB_DOWN)
+          vy = projectile_vel          
+          y += @size / 2
+        end
         @projectiles.push (Projectile.new(x, y, vx, vy))
         @cooldown = @max_cooldown
       end
@@ -56,9 +65,8 @@ class Character
   end
 
   def draw
-    size = 32
     color = Gosu::Color::GREEN
-    Gosu::draw_rect(@x - size/2, @y - size/2, size, size, color) 
+    Gosu::draw_rect(@x - @size / 2, @y - @size / 2, @size, @size, color) 
 
     @projectiles.each {|projectile| projectile.draw} 
   end
