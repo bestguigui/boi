@@ -8,6 +8,7 @@ class Window < Gosu::Window
     self.caption = 'BoI clone'
 
     @character = Character.new(self.width/2, self.height/2)
+    $window = self
   end
 
   def needs_cursor?; true; end
