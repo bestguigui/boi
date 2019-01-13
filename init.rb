@@ -1,4 +1,12 @@
 require 'gosu'
+require 'opengl'
+require 'glu'
+
+OpenGL.load_lib
+GLU.load_lib
+
+include OpenGL, GLU
+
 require_relative 'character.rb'
 require_relative 'projectile.rb'
 
