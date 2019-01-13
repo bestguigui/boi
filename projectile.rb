@@ -11,7 +11,7 @@ class Projectile
 	end
 
 	def draw
-		size = 10
+		size = 12
 		color = Gosu::Color::RED
 		Gosu::draw_rect(@x - size/2, @y - size/2, size, size, color)
 	end
